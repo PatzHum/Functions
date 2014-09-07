@@ -48,10 +48,14 @@ def bedmas(Equation):
             i = 0
             while i <= len(Equation)-1:
                 j = Equation[i]
-                if Equation[0] == '' and Equation[1] == '-':
+                if equation[0] == '':
+                    equation.pop(0)
+                if Equation[0] == '-':
+                    Equation[0] = Equation[0] + Equation[1]
+                    Equation.pop(1)
+                if Equation[0] == '-' and len(Equation) == 2:
                     Equation = [("-" + Equation[2])]
                 elif j == operator:
-                    print equation
                     Equation[i-1] = oper(operator, float(Equation[i-1]), float(Equation[i+1]))
                     Equation.pop(i)
                     Equation.pop(i)
